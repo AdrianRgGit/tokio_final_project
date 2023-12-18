@@ -1,26 +1,25 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 
 
 def home(request):
-    return HttpResponse("Home")
+    return render(request, "core/home.html")
 
 
 def history(request):
-    return HttpResponse("History")
+    return render(request, "core/history.html")
 
 
 def favorite_movies(request):
-    return HttpResponse("Favorite-movies")
+    return render(request, "core/favorite_movies.html")
 
 
 def profile(request):
-    return HttpResponse("Profile")
+    return render(request, "core/profile.html")
 
 
 def auth(request):
-    return HttpResponse("Auth")
+    return render(request, "core/auth.html")
 
 
 def stats(request):
-    return HttpResponse("Stats")
+    return render(request, "core/stats.html")
