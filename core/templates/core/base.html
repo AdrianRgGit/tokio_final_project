@@ -5,10 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio | Moviing</title>
+    <link rel="icon" href="static/images/pywatch_logo.png" type="image/x-icon">
+    <title>PyWatch | Inicio</title>
 
     <link href="static/core/main.css" rel="stylesheet">
     <link href="static/core/sidebar.css" rel="stylesheet">
+    <link href="static/core/header.css" rel="stylesheet">
 
     <!--Para cargar los elementos estáticos (local)-->
     <!--  De momento esto no me hace nada  -->
@@ -48,6 +50,11 @@
         </svg>
     </a>
 </nav>
-{% block content %}{% endblock %}
+<!--Contenido de las plantillas-->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer></footer>
 </body>
 </html>
