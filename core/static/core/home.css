@@ -5,13 +5,56 @@
 
   --background-color: #010001;
 
-  --white-color: #fffaeb;
+  --white-color: #fffffb;
   --gray-color: #191A1D;
   --black-color: #161616;
 
   --small-font: 0.75rem;
-  --medium-font: 1.5rem;
-  --large-font: 2rem;
+  --medium-font: 1.25rem;
+  --large-font: 1.75rem;
+  --extra-large-font: 2rem;
+
+  --font-roboto: font-family: 'Roboto', sans-serif;
+}
+
+.search-filter-container{
+  background-image: url('/static/images/imagen_fondo_prueba_1.jpg');
+  background-position: center;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px 0px
+}
+
+.search{
+  width: 100vh;
+  height: 30px;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: var(--medium-font);
+  background-color: var(--white-color);
+}
+
+.filter-container{
+  display: flex;
+  gap: 0px 36px;
+}
+
+.filter-button{
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: var(--gray-color);
+  color: white;
+}
+
+.main-title{
+  font-size: var(--extra-large-font);
+  margin: 30px 0 0 30px;
 }
 
 .cards-container {
@@ -44,6 +87,7 @@
 
 .card-text-container {
   padding: 32px;
+  background: var(--gray-color);
 }
 
 .genre {

@@ -5,16 +5,16 @@
 
   --background-color: #010001;
 
-  --white-color: #fffaeb;
+  --white-color: #fffffb;
   --gray-color: #191A1D;
   --black-color: #161616;
 
-  --small-font: 0.5rem;
-  --medium-font: 1rem;
-  --large-font: 1.5rem;
+  --small-font: 0.75rem;
+  --medium-font: 1.25rem;
+  --large-font: 1.75rem;
+  --extra-large-font: 2rem;
 
   --font-roboto: font-family: 'Roboto', sans-serif;
-
 }
 
 body {
