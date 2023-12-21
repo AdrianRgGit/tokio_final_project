@@ -13,9 +13,8 @@
 
     <!--La ruta se debe de cargar de esta manera en todos los archivos estáticos-->
     <link href="{% static 'core/main.css' %}" rel="stylesheet">
+    <link href="{% static 'core/base.css' %}" rel="stylesheet">
     <link href="{% static 'core/home.css' %}" rel="stylesheet">
-    <link href="{% static 'core/header.css' %}" rel="stylesheet">
-    <link href="{% static 'core/sidebar.css' %}" rel="stylesheet">
 
     <!--  Fuente de google  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
@@ -60,6 +59,9 @@
     {% block content %}{% endblock %}
 </main>
 
-<footer></footer>
+<footer class="footer-container">
+    <p>Proyecto realizado por Adrián Ramírez</p>
+    <p>GitHub: AdrianRgGit</p>
+</footer>
 </body>
 </html>
