@@ -8,18 +8,16 @@
     <link rel="icon" href="static/images/pywatch_logo.png" type="image/x-icon">
     <title>PyWatch | Inicio</title>
 
-    <link href="static/core/main.css" rel="stylesheet">
-    <link href="static/core/sidebar.css" rel="stylesheet">
-    <link href="static/core/header.css" rel="stylesheet">
-    <link href="static/core/home.css" rel="stylesheet">
+    <!--Para cargar los elementos estáticos en todas las vistas (local)-->
+    {% load static %}
+
+    <link href="{% static 'core/main.css' %}" rel="stylesheet">
+    <link href="{% static 'core/home.css' %}" rel="stylesheet">
+    <link href="{% static 'core/header.css' %}" rel="stylesheet">
+    <link href="{% static 'core/sidebar.css' %}" rel="stylesheet">
 
     <!--  Fuente de google  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-
-
-    <!--Para cargar los elementos estáticos (local)-->
-    <!--  De momento esto no me hace nada  -->
-    <!--    {% load static %}-->
 </head>
 <body>
 <!--SideBar-->
