@@ -1,17 +1,53 @@
 {% extends "core/base.html" %}
 {% block content %}
 <!--Filtros-->
-<section>
-    <h1>Esto es la sección de búsqueda y filtros</h1>
+<section class="search-filter-container">
+    <div class="search-container">
+        <input type="text">
+    </div>
+
+    <div class="filter-container">
+        <button>+</button>
+        <button>+</button>
+        <button>+</button>
+        <button>+</button>
+    </div>
 </section>
 
 <!--Main-->
-<section>
-    <h1>Esto es el contenido principal</h1>
+<!--Para películas-->
+<h1>Películas</h1>
+<section class="cards-container">
+    <div class="card-container">
+        <a class="card-link" href="#">
+            <img src="static/images/imagen_prueba_1.jpg" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">Género</p>
+                <p class="title">Título</p>
+                <p class="duration">Duración</p>
+            </div>
+        </a>
+    </div>
 </section>
 
+<h1>Series</h1>
+<section class="cards-container">
+    <div class="card-container">
+        <a class="card-link" href="#">
+            <img src="static/images/imagen_prueba_2.jpg" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">Género</p>
+                <p class="title">Título</p>
+                <p class="duration">Temporadas</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!--Para series-->
+
 <!--Footer-->
-<footer>
-    <h1>Esto es el footer</h1>
-</footer>
+<!--<footer>-->
+<!--    <h1>Esto es el footer</h1>-->
+<!--</footer>-->
 {% endblock %}
