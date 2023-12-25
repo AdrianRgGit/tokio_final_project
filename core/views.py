@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -13,13 +14,18 @@ def favorite_movies(request):
     return render(request, "core/favorite_movies.html")
 
 
+@login_required
 def profile(request):
     return render(request, "core/profile.html")
 
 
-def auth(request):
-    return render(request, "core/auth.html")
-
-
 def stats(request):
     return render(request, "core/stats.html")
+
+
+def login(request):
+    return render(request, "core/login.html")
+
+
+def register(request):
+    return render(request, "core/register.html")
