@@ -3,7 +3,7 @@ from .models import Movie
 
 
 class ReadFields(admin.ModelAdmin):
-    readonly_fields = ("created_at", "updated_at")
+    readonly_fields = ("id", "created_at", "updated_at")
 
 
 # Register your models here.
