@@ -6,11 +6,14 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     duration = models.DurationField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to="movies")
     description = models.TextField()
     release_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.title
