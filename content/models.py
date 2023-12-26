@@ -41,6 +41,7 @@ class Season(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to="seasons", blank=True)
     description = models.TextField()
+    season_number = models.IntegerField()
     release_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -49,7 +50,7 @@ class Season(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.title} - {self.serie_id.title}"
+        return f"{self.season_number} - {self.title} - {self.serie_id.title}"
 
 
 class Episode(models.Model):
@@ -63,8 +64,12 @@ class Episode(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def serie_id(self):
+        return self.season_id.serie_id
+
     class Meta:
         ordering = ["-created_at"]
 
     def __str__(self):
-        return f"{self.title} - {self.serie_id.title}"
+        return f"{self.episode_number} - {self.title} - {self.season_id.title} - {self.season_id.serie_id.title}"

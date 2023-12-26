@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Movie
+from .models import *
 
 
 class ReadFields(admin.ModelAdmin):
@@ -8,3 +8,6 @@ class ReadFields(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Movie, ReadFields)
+admin.site.register(Serie, ReadFields)
+admin.site.register(Season, ReadFields)
+admin.site.register(Episode, ReadFields)
