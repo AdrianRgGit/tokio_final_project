@@ -1,8 +1,26 @@
 {% extends "core/base.html" %}
 {% block content %}
-<!--Main-->
-<main>
-    <h1>Profile</h1>
-</main>
+{% load static %}
+
+<section>
+    <h1>Perfil</h1>
+    <article class="profile-container">
+        <div class="form-container">
+            <form>
+                <div class="input-container">
+                    <p>Nombre de usuario</p>
+                    <p>Manolo</p>
+                </div>
+                <div class="input-container">
+                    <p>Email</p>
+                    <p>manolo@manolo.es</p>
+                </div>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'images/imagen_prueba_1.jpg' %}" class="card-image"/>
+        </div>
+    </article>
+</section>
 
 {% endblock %}

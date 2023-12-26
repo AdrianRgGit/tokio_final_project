@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% block content %}
+{% load static %}
 <!--Filtros-->
 <section class="search-filter-container">
     <div class="search-container">
@@ -20,7 +21,7 @@
 <section class="cards-container">
     <div class="card-container">
         <a class="card-link" href="#">
-            <img src="static/images/imagen_prueba_1.jpg" class="card-image"/>
+            <img src="{% static 'images/imagen_prueba_1.jpg' %}" class="card-image"/>
             <div class="card-text-container">
                 <p class="genre">Género</p>
                 <p class="title">Título</p>
@@ -35,7 +36,7 @@
 <section class="cards-container">
     <div class="card-container">
         <a class="card-link" href="#">
-            <img src="static/images/imagen_prueba_2.jpg" class="card-image"/>
+            <img src="{% static 'images/imagen_prueba_2.jpg' %}" class="card-image"/>
             <div class="card-text-container">
                 <p class="genre">Género</p>
                 <p class="title">Título</p>
