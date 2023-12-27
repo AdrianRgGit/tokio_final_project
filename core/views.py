@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
@@ -19,6 +20,11 @@ class HomePageView(ListView):
         content = list(movies_query) + list(series_query)
 
         return content
+
+
+class MovieDetailView(DetailView):
+    template_name = "core/movie_detail.html"
+    model = Movie
 
 
 def history(request):

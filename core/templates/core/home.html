@@ -22,7 +22,7 @@
 <section class="cards-container">
     {% for media in content %}
     <div class="card-container">
-        <a class="card-link" href="#">
+        <a class="card-link" href="{% url 'movie_detail' media.pk %}">
             <img src="{{ media.image.url }}" class="card-image" alt="{{ media.title }}">
             <div class="card-text-container">
                 <p class="genre">{{media.genre}}</p>
