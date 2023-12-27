@@ -5,18 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="static/images/pywatch_logo.png" type="image/x-icon">
-    <title>PyWatch | Inicio</title>
-
     <!--Para cargar los elementos estáticos en todas las vistas (local)-->
     {% load static %}
+    <link rel="icon" href="{% static 'images/pywatch_logo.png' %}" type="image/x-icon">
+    <title>PyWatch | Inicio</title>
 
     <!--La ruta se debe de cargar de esta manera en todos los archivos estáticos-->
     <link href="{% static 'core/main.css' %}" rel="stylesheet">
     <link href="{% static 'core/base.css' %}" rel="stylesheet">
     <link href="{% static 'core/home.css' %}" rel="stylesheet">
     <link href="{% static 'core/auth.css' %}" rel="stylesheet">
-    <link href="{% static 'core/profile.css' %}" rel="stylesheet">
 
     <!--  Fuente de google  -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">

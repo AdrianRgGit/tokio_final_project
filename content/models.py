@@ -6,7 +6,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
     duration = models.DurationField()
-    image = models.ImageField(upload_to="movies", blank=True)
+    image = models.ImageField(upload_to="movies")
     description = models.TextField()
     release_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -22,7 +22,7 @@ class Movie(models.Model):
 class Serie(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="series", blank=True)
+    image = models.ImageField(upload_to="series")
     description = models.TextField()
     release_date = models.DateField()
     status = models.BooleanField()
@@ -39,7 +39,7 @@ class Serie(models.Model):
 class Season(models.Model):
     serie_id = models.ForeignKey(Serie, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="seasons", blank=True)
+    image = models.ImageField(upload_to="seasons")
     description = models.TextField()
     season_number = models.IntegerField()
     release_date = models.DateField()
@@ -56,7 +56,7 @@ class Season(models.Model):
 class Episode(models.Model):
     season_id = models.ForeignKey(Season, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="episodes", blank=True)
+    image = models.ImageField(upload_to="episodes")
     description = models.TextField()
     duration = models.DurationField()
     episode_number = models.IntegerField()

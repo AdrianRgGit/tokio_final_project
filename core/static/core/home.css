@@ -77,12 +77,11 @@
 .card-image {
   height: 300px;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+  object-fit: cover;
 }
 
 .card-text-container {
+  height: 100%;
   padding: 32px;
   background: var(--gray-color);
 }

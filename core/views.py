@@ -1,9 +1,15 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.views.generic.base import TemplateView
+from django.views.generic.list import ListView
+
+from content.models import Movie
 
 
-def home(request):
-    return render(request, "core/home.html")
+class HomePageView(ListView):
+    template_name = "core/home.html"
+    model = Movie
+    context_object_name = "movies"
 
 
 def history(request):

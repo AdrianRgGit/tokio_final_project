@@ -18,17 +18,20 @@
 <!--Main-->
 <!--Para películas-->
 <h1 class="main-title">Películas</h1>
+
 <section class="cards-container">
+    {% for movie in movies %}
     <div class="card-container">
         <a class="card-link" href="#">
-            <img src="{% static 'images/imagen_prueba_1.jpg' %}" class="card-image"/>
+            <img src="{{ movie.image.url }}" class="card-image" alt="{{ movie.title }}">
             <div class="card-text-container">
-                <p class="genre">Género</p>
-                <p class="title">Título</p>
-                <p class="duration">Duración</p>
+                <p class="genre">{{movie.genre}}</p>
+                <p class="title">{{movie.title}}</p>
+                <p class="duration">{{movie.duration}}</p>
             </div>
         </a>
     </div>
+    {% endfor %}
 </section>
 
 <!--Para series-->
