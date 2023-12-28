@@ -20,14 +20,14 @@
 <h1 class="main-title">Películas</h1>
 
 <section class="cards-container">
-    {% for media in content %}
+    {% for movie in movies %}
     <div class="card-container">
-        <a class="card-link" href="{% url 'movie_detail' media.pk %}">
-            <img src="{{ media.image.url }}" class="card-image" alt="{{ media.title }}">
+        <a class="card-link" href="{% url 'movie_detail' movie.pk %}">
+            <img src="{{ movie.image.url }}" class="card-image" alt="{{ movie.title }}">
             <div class="card-text-container">
-                <p class="genre">{{media.genre}}</p>
-                <p class="title">{{media.title}}</p>
-                <p class="duration">{{media.duration}}</p>
+                <p class="genre">{{movie.genre}}</p>
+                <p class="title">{{movie.title}}</p>
+                <p class="duration">{{movie.duration}}</p>
             </div>
         </a>
     </div>

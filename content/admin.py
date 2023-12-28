@@ -2,12 +2,12 @@ from django.contrib import admin
 from .models import *
 
 
-class ReadFields(admin.ModelAdmin):
+class ReadOnlyFields(admin.ModelAdmin):
     readonly_fields = ("id", "created_at", "updated_at")
 
 
 # Register your models here.
-admin.site.register(Movie, ReadFields)
-admin.site.register(Serie, ReadFields)
-admin.site.register(Season, ReadFields)
-admin.site.register(Episode, ReadFields)
+admin.site.register(Movie, ReadOnlyFields)
+admin.site.register(Serie, ReadOnlyFields)
+admin.site.register(Season, ReadOnlyFields)
+admin.site.register(Episode, ReadOnlyFields)

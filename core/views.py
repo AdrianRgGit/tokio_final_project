@@ -4,22 +4,13 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
-from content.models import Movie, Serie
+from content.models import Movie
 
 
 class HomePageView(ListView):
     template_name = "core/home.html"
-    context_object_name = "content"
-
-    def get_queryset(self):
-        # Obtén las listas de películas y series
-        movies_query = Movie.objects.all()
-        series_query = Serie.objects.all()
-
-        # Combina las listas y ordénalas según tus necesidades
-        content = list(movies_query) + list(series_query)
-
-        return content
+    context_object_name = "movies"
+    model = Movie
 
 
 class MovieDetailView(DetailView):

@@ -5,6 +5,7 @@ from django.db import models
 class Movie(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
+    director = models.CharField(max_length=100)
     duration = models.DurationField()
     image = models.ImageField(upload_to="movies")
     description = models.TextField()
@@ -22,6 +23,7 @@ class Movie(models.Model):
 class Serie(models.Model):
     title = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
+    director = models.CharField(max_length=100)
     image = models.ImageField(upload_to="series")
     description = models.TextField()
     release_date = models.DateField()
