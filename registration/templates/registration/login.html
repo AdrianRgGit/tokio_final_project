@@ -4,6 +4,7 @@
 <section class="login-container">
     <h2 class="login-title">Iniciar Sesión</h2>
     <form class="login-form" action="#" method="post">
+        {% csrf_token %}
         <label class="login-label" for="username">Usuario:</label>
         <input class="login-input" type="text" id="username" name="username" required>
 
