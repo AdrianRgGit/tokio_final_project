@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'core',
     'content',
     'user',
+    'registration'
 ]
 
 MIDDLEWARE = [

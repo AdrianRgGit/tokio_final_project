@@ -9,6 +9,5 @@ urlpatterns = [
     path("serie/<int:pk>/", SerieDetailView.as_view(), name="serie_detail"),
     path("history/", views.history, name="history"),
     path("favorite_movies/", views.favorite_movies, name="favorite_movies"),
-    path("profile/", views.profile, name="profile"),
     path("stats/", views.stats, name="stats"),
 ]
