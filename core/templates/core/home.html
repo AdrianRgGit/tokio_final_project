@@ -37,22 +37,16 @@
 <!--Para series-->
 <h1 class="main-title">Series</h1>
 <section class="cards-container">
+    {% for serie in series %}
     <div class="card-container">
-        <a class="card-link" href="#">
-            <img src="{% static 'images/imagen_prueba_2.jpg' %}" class="card-image"/>
+        <a class="card-link" href="{% url 'serie_detail' serie.pk %}">
+            <img src="{{ serie.image.url }}" class="card-image"/>
             <div class="card-text-container">
-                <p class="genre">Género</p>
-                <p class="title">Título</p>
-                <p class="duration">Temporadas</p>
+                <p class="genre">{{serie.genre}}</p>
+                <p class="title">{{serie.title}}</p>
             </div>
         </a>
     </div>
+    {% endfor %}
 </section>
-
-<!--Para series-->
-
-<!--Footer-->
-<!--<footer>-->
-<!--    <h1>Esto es el footer</h1>-->
-<!--</footer>-->
 {% endblock %}

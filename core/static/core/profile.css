@@ -1,0 +1,46 @@
+.profile {
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+.input-container p {
+  margin: 0;
+  color: #666;
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.card-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

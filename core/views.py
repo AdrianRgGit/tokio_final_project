@@ -4,18 +4,27 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
-from content.models import Movie
+from content.models import Movie, Serie
 
 
-class HomePageView(ListView):
+class HomePageView(TemplateView):
     template_name = "core/home.html"
-    context_object_name = "movies"
-    model = Movie
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['movies'] = Movie.objects.all()
+        context['series'] = Serie.objects.all()
+        return context
 
 
 class MovieDetailView(DetailView):
     template_name = "core/movie_detail.html"
     model = Movie
+
+
+class SerieDetailView(DetailView):
+    template_name = "core/serie_detail.html"
+    model = Serie
 
 
 def history(request):
