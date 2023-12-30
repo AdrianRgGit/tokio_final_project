@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
-from django.views.generic.base import TemplateView
-from django.views.generic.list import ListView
+from django.views.generic.base import TemplateView, View
 
 from content.models import Movie, Serie
 
@@ -17,23 +17,37 @@ class HomePageView(TemplateView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
 class MovieDetailView(DetailView):
     template_name = "core/movie_detail.html"
     model = Movie
 
 
+@method_decorator(login_required, name='dispatch')
 class SerieDetailView(DetailView):
     template_name = "core/serie_detail.html"
     model = Serie
 
 
-def history(request):
-    return render(request, "core/history.html")
+@method_decorator(login_required, name='dispatch')
+class HistoryView(View):
+    template_name = 'core/history.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
 
-def favorite_movies(request):
-    return render(request, "core/favorite_movies.html")
+@method_decorator(login_required, name='dispatch')
+class FavoriteMoviesView(View):
+    template_name = 'core/favorite_movies.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
 
 
-def stats(request):
-    return render(request, "core/stats.html")
+@method_decorator(login_required, name='dispatch')
+class StatsView(View):
+    template_name = 'core/stats.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
