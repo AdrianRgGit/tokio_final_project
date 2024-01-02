@@ -1,6 +1,17 @@
 {% extends "core/base.html" %}
 {% block content %}
 <section>
-    Hola
+    <!--Importante, poner siempre el enctype cuando se vayan a subir archivos-->
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!--Django te crea el formulario automáticamente con esto-->
+        {{ form.as_p }}
+
+        <div>
+            <input type="submit" value="Create movie"/>
+        </div>
+    </form>
+
 </section>
 {% endblock %}
