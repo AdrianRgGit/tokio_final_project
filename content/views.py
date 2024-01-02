@@ -10,24 +10,26 @@ from .models import Movie, Serie
 from .forms import MovieForm
 
 
-@method_decorator(login_required, name='dispatch')
 class MovieDetailView(DetailView):
     template_name = "content/movie_detail.html"
     model = Movie
 
 
+@method_decorator(login_required, name='dispatch')
 class MovieCreateView(CreateView):
     model = Movie
     form_class = MovieForm
     success_url = reverse_lazy('home')
 
 
+@method_decorator(login_required, name='dispatch')
 class MovieUpdateView(UpdateView):
     model = Movie
     form_class = MovieForm
     success_url = reverse_lazy('home')
 
 
+@method_decorator(login_required, name='dispatch')
 class MovieDeleteView(DeleteView):
     model = Movie
     success_url = reverse_lazy('home')
