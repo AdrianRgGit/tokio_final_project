@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% block content %}
+<section>
+    <!--Importante, poner siempre el enctype cuando se vayan a subir archivos-->
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>¿Estás seguro de que quieres borrar <b>"{{ object }}"</b>?</p>
+        <input type="submit" value="Confirmar"/>
+    </form>
+</section>
+{% endblock %}

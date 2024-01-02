@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import DetailView, CreateView, UpdateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 from django.views.generic.base import View
 from django.urls import reverse_lazy
 
@@ -25,6 +25,11 @@ class MovieCreateView(CreateView):
 class MovieUpdateView(UpdateView):
     model = Movie
     form_class = MovieForm
+    success_url = reverse_lazy('home')
+
+
+class MovieDeleteView(DeleteView):
+    model = Movie
     success_url = reverse_lazy('home')
 
 
