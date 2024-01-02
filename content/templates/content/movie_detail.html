@@ -13,7 +13,7 @@
         <p>Descripción: {{movie.description}}</p>
     </div>
     <div class="movie-buttons-container">
-        <button class="movie-buttons">Editar</button>
+        <button class="movie-buttons"><a href="{% url 'update_movie' movie.id %}">Editar</a></button>
         <button class="movie-buttons">Borrar</button>
     </div>
 </section>
