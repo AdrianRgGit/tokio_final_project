@@ -101,3 +101,18 @@
   color: #666;
   margin: 0;
 }
+
+.add-content-container{
+   display: flex;
+   align-items: center;
+}
+
+.add-content {
+  height: 50px;
+  width: 50px;
+  background-color: gray;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

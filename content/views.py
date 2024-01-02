@@ -19,7 +19,6 @@ class MovieDetailView(DetailView):
 
 class MovieCreateView(CreateView):
     model = Movie
-    # fields = ["title", "genre", "director", "duration", "image", "description", "release_date"]
     form_class = MovieForm
     success_url = reverse_lazy('home')
 
