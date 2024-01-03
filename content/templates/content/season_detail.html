@@ -1,0 +1,19 @@
+{% extends "core/base.html" %}
+{% block content %}
+<section class="movie-container">
+    <div class="movie-image">
+        <img src="{{ season.image.url }}" alt="{{ season.title }}">
+    </div>
+    <div class="movie-details">
+        <h2>{{season.title}}</h2>
+        <a href="{% url 'episode_list' serie_pk=season.serie_id.pk season_pk=season.pk %}">Episodios: {{ number_episodes
+            }}</a>
+        <p>Fecha de lanzamiento: {{season.release_date}}</p>
+        <p>Descripción: {{season.description}}</p>
+    </div>
+    <div class="movie-buttons-container">
+        <button class="movie-buttons">Editar</button>
+        <button class="movie-buttons">Borrar</button>
+    </div>
+</section>
+{% endblock %}

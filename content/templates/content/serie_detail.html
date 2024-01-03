@@ -6,11 +6,12 @@
     </div>
     <div class="movie-details">
         <h2>{{serie.title}}</h2>
-        <p>Temporadas: {{serie.duration}}</p>
+        <a href="{% url 'season_list' serie.pk %}">Temporadas: {{number_seasons}}</a>
         <p>Categoría: <span class="category">{{serie.genre}}</span></p>
         <p>Director: {{serie.director}}</p>
         <p>Fecha de lanzamiento: {{serie.release_date}}</p>
         <p>Descripción: {{serie.description}}</p>
+        <p>En grabación: {{serie.status}}</p>
     </div>
     <div class="movie-buttons-container">
         <button class="movie-buttons">Editar</button>

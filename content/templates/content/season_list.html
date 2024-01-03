@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+<section class="cards-container">
+    {% for season in seasons %}
+    <div class="card-container">
+        <a href="{% url 'season_detail' serie_pk=episode.season_id.serie_id.pk season_pk=episode.season_id.pk %}">
+            <img src="{{ season.image.url }}" class="card-image" alt="{{ season.title }}">
+            <div class="card-text-container">
+                <p class="genre">{{season.season_number}}</p>
+                <p class="title">{{season.title}}</p>
+                <p class="duration">{{season.release_date}}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
