@@ -4,7 +4,7 @@
 <section class="cards-container">
     {% for season in seasons %}
     <div class="card-container">
-        <a href="{% url 'season_detail' serie_pk=episode.season_id.serie_id.pk season_pk=episode.season_id.pk %}">
+        <a href="{% url 'season_detail' serie_pk=season.serie_id.pk season_pk=season.pk %}">
             <img src="{{ season.image.url }}" class="card-image" alt="{{ season.title }}">
             <div class="card-text-container">
                 <p class="genre">{{season.season_number}}</p>
