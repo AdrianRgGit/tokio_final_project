@@ -74,6 +74,7 @@ class SeasonDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['number_episodes'] = Episode.objects.filter(season_id=self.object).count()
+        print("Esto es el context", context['number_episodes'])
         return context
 
 
@@ -99,9 +100,9 @@ class EpisodeDetailView(DetailView):
     template_name = "content/episode_detail.html"
     model = Episode
 
-    def get_object(self, **kwargs):
-        return get_object_or_404(Episode, season_id=self.kwargs['season_pk'], serie_id=self.kwargs['serie_pk'],
-                                 pk=self.kwargs['season_pk'])
+    def get_object(self):
+        return get_object_or_404(Episode, season_id=self.kwargs['season_pk'],
+                                 pk=self.kwargs['episode_pk'])
 
 
 @method_decorator(login_required, name='dispatch')
