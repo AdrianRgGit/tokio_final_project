@@ -48,6 +48,26 @@ class SerieDetailView(DetailView):
 
 
 @method_decorator(login_required, name='dispatch')
+class SerieCreateView(CreateView):
+    model = Serie
+    fields = ['title', 'genre', 'director', 'image', 'description', 'release_date', 'status']
+    success_url = reverse_lazy('home')
+
+
+@method_decorator(login_required, name='dispatch')
+class SerieUpdateView(UpdateView):
+    model = Serie
+    fields = ['title', 'genre', 'director', 'image', 'description', 'release_date', 'status']
+    success_url = reverse_lazy('home')
+
+
+@method_decorator(login_required, name='dispatch')
+class SerieDeleteView(DeleteView):
+    model = Serie
+    success_url = reverse_lazy('home')
+
+
+@method_decorator(login_required, name='dispatch')
 class SeasonListView(ListView):
     model = Season
     template_name = "content/season_list.html"
@@ -76,6 +96,33 @@ class SeasonDetailView(DetailView):
         context['number_episodes'] = Episode.objects.filter(season_id=self.object).count()
         print("Esto es el context", context['number_episodes'])
         return context
+
+
+@method_decorator(login_required, name='dispatch')
+class SeasonCreateView(CreateView):
+    model = Season
+    fields = ['title', 'image', 'description', 'season_number', 'release_date']
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        serie_pk = self.kwargs.get('serie_pk')
+        serie = Serie.objects.get(pk=serie_pk)
+        form.instance.serie = serie
+        print("Esta es la serie", serie)
+        return super().form_valid(form)
+
+
+@method_decorator(login_required, name='dispatch')
+class SeasonUpdateView(UpdateView):
+    model = Season
+    fields = ['title', 'image', 'description', 'season_number', 'release_date']
+    success_url = reverse_lazy('home')
+
+
+@method_decorator(login_required, name='dispatch')
+class SeasonDeleteView(DeleteView):
+    model = Season
+    success_url = reverse_lazy('home')
 
 
 @method_decorator(login_required, name='dispatch')

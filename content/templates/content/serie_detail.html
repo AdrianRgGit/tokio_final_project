@@ -14,8 +14,8 @@
         <p>En grabación: {{serie.status}}</p>
     </div>
     <div class="movie-buttons-container">
-        <button class="movie-buttons">Editar</button>
-        <button class="movie-buttons">Borrar</button>
+        <button class="movie-buttons"><a href="{% url 'update_serie' serie.id %}">Editar</a></button>
+        <button class="movie-buttons"><a href="{% url 'delete_serie' serie.id %}">Eliminar</a></button>
     </div>
 </section>
 {% endblock %}

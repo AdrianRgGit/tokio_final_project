@@ -9,6 +9,9 @@ urlpatterns = [
     # Path admin
     path('admin/', admin.site.urls),
 
+    # Path tailwind
+    path("__reload__/", include("django_browser_reload.urls")),
+
     # Path auth
     path('accounts/', include('django.contrib.auth.urls')),
     path('registration/', include('registration.urls')),
