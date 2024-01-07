@@ -150,11 +150,3 @@ class EpisodeDetailView(DetailView):
     def get_object(self):
         return get_object_or_404(Episode, season_id=self.kwargs['season_pk'],
                                  pk=self.kwargs['episode_pk'])
-
-
-@method_decorator(login_required, name='dispatch')
-class FavoriteMoviesView(View):
-    template_name = 'content/favorite_movies.html'
-
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)

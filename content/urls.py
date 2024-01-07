@@ -21,6 +21,4 @@ urlpatterns = [
     path("serie/<int:serie_pk>/seasons/<int:season_pk>/episodes", EpisodeListView.as_view(), name="episode_list"),
     path("serie/<int:serie_pk>/seasons/<int:season_pk>/episodes/<int:episode_pk>", EpisodeDetailView.as_view(),
          name="episode_detail"),
-
-    path("favorite_movies/", FavoriteMoviesView.as_view(), name="favorite_movies"),
 ]
