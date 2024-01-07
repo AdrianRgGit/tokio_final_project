@@ -8,12 +8,22 @@ from django.urls import reverse_lazy
 from .models import Movie, Serie, Season, Episode
 
 from .forms import MovieForm
+from user.models import Favorite
 
 
 @method_decorator(login_required, name='dispatch')
 class MovieDetailView(DetailView):
     template_name = "content/movie_detail.html"
     model = Movie
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        movie = self.object
+
+        context['is_favorite'] = Favorite.objects.filter(user=user, movie=movie).exists()
+
+        return context
 
 
 @method_decorator(login_required, name='dispatch')
@@ -43,7 +53,12 @@ class SerieDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['number_seasons'] = Season.objects.filter(serie_id=self.object).count()
+        user = self.request.user
+        serie = self.object
+
+        context['is_favorite'] = Favorite.objects.filter(user=user, serie=serie).exists()
+        context['number_seasons'] = Season.objects.filter(serie_id=serie).count()
+
         return context
 
 
