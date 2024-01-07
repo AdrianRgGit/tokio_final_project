@@ -7,7 +7,7 @@ class ReadFields(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(User, ReadFields)
+# admin.site.register(User, ReadFields)
 admin.site.register(Like, ReadFields)
 admin.site.register(Favorite, ReadFields)
 admin.site.register(View, ReadFields)
