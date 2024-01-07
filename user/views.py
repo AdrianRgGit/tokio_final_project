@@ -45,3 +45,20 @@ class AddFavoriteView(LoginRequiredMixin, View):
             return HttpResponseBadRequest("Invalid content type")
 
         return redirect('favorite_content')
+
+
+@method_decorator(require_POST, name='dispatch')
+class RemoveFavoriteView(LoginRequiredMixin, View):
+    def post(self, request, content_type, content_id):
+        user = request.user
+
+        if content_type == 'movie':
+            content_object = get_object_or_404(Movie, pk=content_id)
+            Favorite.objects.filter(user=user, movie=content_object).delete()
+        elif content_type == 'serie':
+            content_object = get_object_or_404(Serie, pk=content_id)
+            Favorite.objects.filter(user=user, serie=content_object).delete()
+        else:
+            return HttpResponseBadRequest("Invalid content type")
+
+        return redirect('favorite_content')

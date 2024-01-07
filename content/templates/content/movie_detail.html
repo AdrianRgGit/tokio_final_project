@@ -15,9 +15,15 @@
     <div class="movie-buttons-container">
         <button class="movie-buttons"><a href="{% url 'update_movie' movie.id %}">Editar</a></button>
         <button class="movie-buttons"><a href="{% url 'delete_movie' movie.id %}">Eliminar</a></button>
+
         <form action="{% url 'add_favorite' 'movie' movie.id %}" method="post">
             {% csrf_token %}
             <button type="submit" class="movie-buttons">Añadir a favoritos</button>
+        </form>
+
+        <form action="{% url 'remove_favorite' 'movie' movie.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="movie-buttons">Eliminar de favoritos</button>
         </form>
     </div>
 </section>

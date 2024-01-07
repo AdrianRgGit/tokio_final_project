@@ -20,6 +20,11 @@
             {% csrf_token %}
             <button type="submit" class="movie-buttons">Añadir a favoritos</button>
         </form>
+
+        <form action="{% url 'remove_favorite' 'serie' serie.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="movie-buttons">Eliminar de favoritos</button>
+        </form>
     </div>
 </section>
 {% endblock %}
