@@ -123,7 +123,6 @@ class SeasonCreateView(CreateView):
         serie_pk = self.kwargs.get('serie_pk')
         serie = Serie.objects.get(pk=serie_pk)
         form.instance.serie = serie
-        print("Esta es la serie", serie)
         return super().form_valid(form)
 
 
