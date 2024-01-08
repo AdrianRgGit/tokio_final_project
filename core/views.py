@@ -30,26 +30,6 @@ class HomeView(TemplateView):
         return context
 
 
-class SearchListView(ListView):
-    template_name = 'core/home.html'
-    context_object_name = 'search_results'
-
-    def get_queryset(self):
-        form = SearchForm(self.request.GET)
-        if form.is_valid():
-            query = form.cleaned_data['query']
-            movies = Movie.objects.filter(title__icontains=query)
-            series = Serie.objects.filter(title__icontains=query)
-            return {'movies': movies, 'series': series}
-        else:
-            return {'movies': Movie.objects.none(), 'series': Serie.objects.none()}
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['search_form'] = SearchForm(self.request.GET)  # Añade el formulario al contexto
-        return context
-
-
 @method_decorator(login_required, name='dispatch')
 class HistoryView(View):
     template_name = 'core/history.html'
