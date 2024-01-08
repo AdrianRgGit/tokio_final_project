@@ -3,9 +3,12 @@
 {% load static %}
 <!--Filtros-->
 <section class="search-filter-container">
-    <div class="search-container">
-        <input class="search" type="text">
-    </div>
+    <form method="GET" action="{% url 'home' %}">
+        <div class="search-container">
+            <input class="search" type="text" name="query" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
 
     <div class="filter-container">
         <button class="filter-button">+</button>
@@ -17,7 +20,7 @@
 
 <!--Main-->
 <!--Para películas-->
-<h1 class="text-blue-1">Películas</h1>
+<h1 class="main-title">Películas</h1>
 
 <section class="cards-container">
     {% for movie in movies %}

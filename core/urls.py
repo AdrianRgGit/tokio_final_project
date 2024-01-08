@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import HomePageView, HistoryView, StatsView
+from .views import *
 
 urlpatterns = [
     # Paths core
-    path("", HomePageView.as_view(), name="home"),
+    path("", HomeView.as_view(), name="home"),
+    path('search/', SearchListView.as_view(), name='search'),
     path("history/", HistoryView.as_view(), name="history"),
     path("stats/", StatsView.as_view(), name="stats"),
 ]

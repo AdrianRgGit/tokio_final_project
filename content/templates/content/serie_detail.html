@@ -5,8 +5,8 @@
         <img class="w-full h-80 object-cover" src="{{ serie.image.url }}" alt="{{ serie.title }}">
         <div class="p-4">
             <h2 class="text-xl font-semibold mb-2">{{serie.title}}</h2>
-            <a class="text-orange-1 font-semibold" href="{% url 'season_list' serie.pk %}">Temporadas:
-                {{number_seasons}}</a>
+            <a href="{% url 'season_list' serie.pk %}">Temporadas:
+                <span class="text-orange-1 font-semibold">{{number_seasons}}</span></a>
             <p>Categoría: <span class="text-orange-1 font-semibold">{{serie.genre}}</span></p>
             <p>Director: <span class="text-orange-1 font-semibold"> {{serie.director}}</span></p>
             <p>Fecha de lanzamiento: <span class="text-orange-1 font-semibold"> {{serie.release_date}}</span></p>

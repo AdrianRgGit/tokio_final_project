@@ -36,6 +36,7 @@
   padding: 8px;
   font-size: var(--medium-font);
   background-color: var(--white-color);
+  color: black;
 }
 
 .filter-container{
@@ -55,6 +56,9 @@
 .main-title{
   font-size: var(--extra-large-font);
   margin: 30px 0 0 30px;
+  color: #3D3B40;
+  border-bottom: 1px solid black;
+  margin-right: 20px;
 }
 
 .cards-container {
