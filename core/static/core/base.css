@@ -22,7 +22,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--gray-color);
+  background-color: #26577C;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,7 @@
 }
 
 .sidebar-container a:hover {
-  background-color: #333;
+  background-color: #E55604;
 }
 
 .footer-container {

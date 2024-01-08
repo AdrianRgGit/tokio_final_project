@@ -21,7 +21,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: var(--white-color);
     padding-left: 4rem;
-    background-color: var(--background-color);
+    background-color: #EBE4D1;
 }
 
 a {
