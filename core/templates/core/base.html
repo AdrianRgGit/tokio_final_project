@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+{% load static tailwind_tags %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,6 +10,9 @@
     {% load static %}
     <link rel="icon" href="{% static 'images/pywatch_logo.png' %}" type="image/x-icon">
     <title>PyWatch | Inicio</title>
+
+    <!--Tailwind-->
+    {% tailwind_css %}
 
     <!--La ruta se debe de cargar de esta manera en todos los archivos estáticos-->
     <link href="{% static 'core/main.css' %}" rel="stylesheet">
