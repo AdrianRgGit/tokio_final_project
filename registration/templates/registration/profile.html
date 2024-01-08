@@ -2,18 +2,17 @@
 {% block content %}
 {% load static %}
 
-<section class="profile">
-    <h1 class="title">Perfil</h1>
-    <article class="profile-container">
-        <div class="form-container">
-            <form>
-                <div class="input-container">
+<section class="bg-blue-1 w-1/2 m-auto p-8">
+    <article class="flex items-center justify-center">
+        <div class="">
+            <form class="flex flex-col gap-y-4">
+                <div class="">
                     <p>Nombre de usuario</p>
-                    <p>{{ user.username }}</p>
+                    <p class="text-orange-1">{{ user.username }}</p>
                 </div>
-                <div class="input-container">
+                <div class="">
                     <p>Email</p>
-                    <p>manolo@manolo.es</p>
+                    <p class="text-orange-1">manolo@manolo.es</p>
                 </div>
             </form>
         </div>
