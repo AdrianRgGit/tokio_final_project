@@ -13,6 +13,18 @@ module.exports = {
         '../../**/*.py'
     ],
     theme: {
+        colors: {
+          "black-1": "#010101",
+          "white-1": "#E4E4E7",
+          "gray-1": "#B4B4B3",
+          "cream-1": "#EBE4D1",
+          "red-1": "#FF6252",
+          "orange-1": "E55604",
+          "green-1": "#2AC670",
+          "blue-1": "#26577C",
+          "transparent":"transparent",
+        },
+
         extend: {},
     },
     plugins: [
