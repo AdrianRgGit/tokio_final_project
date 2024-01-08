@@ -39,18 +39,17 @@
   color: black;
 }
 
-.filter-container{
-  display: flex;
-  gap: 0px 36px;
+.filter-container {
+    display: flex;
+    gap: 10px;
 }
 
-.filter-button{
-  cursor: pointer;
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  background-color: var(--gray-color);
-  color: white;
+.filter-button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .main-title{

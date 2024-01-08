@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -18,11 +19,27 @@ class HomeView(TemplateView):
         movies = Movie.objects.all()
         series = Serie.objects.all()
 
+        sort_duration = self.request.GET.get('sort_duration')
+        sort_release_date = self.request.GET.get('sort_release_date')
+        sort_director = self.request.GET.get('sort_director')
+
         if search_form.is_valid():
             query = search_form.cleaned_data.get('query')
             if query:
                 movies = movies.filter(title__icontains=query)
                 series = series.filter(title__icontains=query)
+
+        if sort_duration:
+            movies = movies.order_by('duration')
+            series = series.annotate(num_seasons=Count('season')).order_by('num_seasons')
+
+        if sort_release_date:
+            movies = movies.order_by('release_date')
+            series = series.order_by('release_date')
+
+        if sort_director:
+            movies = movies.order_by('director')
+            series = series.order_by('director')
 
         context['search_form'] = search_form
         context['movies'] = movies

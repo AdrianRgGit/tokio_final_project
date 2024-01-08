@@ -11,10 +11,13 @@
     </form>
 
     <div class="filter-container">
-        <button class="filter-button">+</button>
-        <button class="filter-button">+</button>
-        <button class="filter-button">+</button>
-        <button class="filter-button">+</button>
+        <a href="{% url 'home' %}" class="filter-button bg-blue-1 hover:opacity-90">Limpiar filtros</a>
+        <a href="{% url 'home' %}?sort_duration=duration"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar por duración</a>
+        <a href="{% url 'home' %}?sort_release_date=release_date"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar por fecha de salida</a>
+        <a href="{% url 'home' %}?sort_director=director"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar director</a>
     </div>
 </section>
 
