@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'core',
     'content',
     'user',
-    'registration'
+    'registration',
+    'chartjs',
+    'stats',
 ]
 
 MIDDLEWARE = [
