@@ -3,12 +3,12 @@
 {% load static %}
 
 <h1>Favoritos</h1>
-<p>Estas son tus películas y series favoritas</p>
+<p>Estas son las películas y series que has visto</p>
 
 <!-- Películas -->
 <h1 class="main-title">Películas</h1>
 <section class="cards-container">
-    {% for movie in favorite_movies %}
+    {% for movie in viewed_movies %}
     <div class="card-container">
         <a class="card-link" href="{% url 'movie_detail' movie.pk %}">
             <img src="{{ movie.image.url }}" class="card-image"/>
@@ -25,7 +25,7 @@
 <!-- Series -->
 <h1 class="main-title">Series</h1>
 <section class="cards-container">
-    {% for serie in favorite_series %}
+    {% for serie in viewed_series %}
     <div class="card-container">
         <a class="card-link" href="{% url 'serie_detail' serie.pk %}">
             <img src="{{ serie.image.url }}" class="card-image"/>

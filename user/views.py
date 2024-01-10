@@ -65,6 +65,24 @@ class RemoveFavoriteView(LoginRequiredMixin, View):
 
 
 @method_decorator(login_required, name='dispatch')
+class ViewedContentView(TemplateView):
+    template_name = 'user/viewed_content.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        user = self.request.user
+
+        viewed_movies = Movie.objects.filter(viewed__user=user)
+        viewed_series = Serie.objects.filter(viewed__user=user)
+
+        context['viewed_movies'] = viewed_movies
+        context['viewed_series'] = viewed_series
+
+        return context
+
+
+@method_decorator(login_required, name='dispatch')
 class ViewedContentView(LoginRequiredMixin, View):
     def post(self, request, content_type, content_id):
         user = request.user
