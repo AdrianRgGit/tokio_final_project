@@ -24,7 +24,7 @@ module.exports = {
           "green-1": "#2AC670",
           "blue-1": "#26577C",
           "yellow-1": "#F6D776",
-          "transparent":"transparent",
+          "purple-1": "#7360DF"
         },
 
         extend: {},

@@ -55,10 +55,10 @@ class Favorite(models.Model):
             return f"{self.user.username}'s Favorite serie: {self.serie}"
 
 
-class View(models.Model):
+class UserViewedContent(models.Model):
     user = models.ForeignKey(DjangoUser, on_delete=models.CASCADE)
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    serie = models.ForeignKey(Serie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, null=True, blank=True)
+    serie = models.ForeignKey(Serie, on_delete=models.CASCADE, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

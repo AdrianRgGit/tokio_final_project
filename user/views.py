@@ -9,7 +9,7 @@ from django.utils.decorators import method_decorator
 from content.models import Movie, Serie
 from django.views.generic import ListView, TemplateView
 
-from .models import Favorite
+from .models import Favorite, UserViewedContent
 
 
 @method_decorator(login_required, name='dispatch')
@@ -62,3 +62,23 @@ class RemoveFavoriteView(LoginRequiredMixin, View):
             return HttpResponseBadRequest("Invalid content type")
 
         return redirect('favorite_content')
+
+
+@method_decorator(login_required, name='dispatch')
+class ViewedContentView(LoginRequiredMixin, View):
+    def post(self, request, content_type, content_id):
+        user = request.user
+        viewed = False
+
+        if content_type == 'movie':
+            content_object = get_object_or_404(Movie, pk=content_id)
+            UserViewedContent.objects.get_or_create(user=user, movie=content_object)
+            viewed = True
+        elif content_type == 'serie':
+            content_object = get_object_or_404(Serie, pk=content_id)
+            UserViewedContent.objects.get_or_create(user=user, serie=content_object)
+            viewed = True
+        else:
+            return HttpResponseBadRequest("Invalid content type")
+
+        return redirect('home')

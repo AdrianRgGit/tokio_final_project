@@ -874,6 +874,11 @@ select {
   background-color: rgb(246 215 118 / var(--tw-bg-opacity));
 }
 
+.bg-purple-1 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(115 96 223 / var(--tw-bg-opacity));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;

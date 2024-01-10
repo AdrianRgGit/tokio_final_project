@@ -10,4 +10,4 @@ class ReadFields(admin.ModelAdmin):
 # admin.site.register(User, ReadFields)
 admin.site.register(Like, ReadFields)
 admin.site.register(Favorite, ReadFields)
-admin.site.register(View, ReadFields)
+admin.site.register(UserViewedContent, ReadFields)

@@ -39,6 +39,11 @@
                 </button>
             </form>
             {% endif %}
+            <form action="{% url 'add_viewed' 'serie' serie.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="ml-2 bg-purple-1 text-white px-4 py-2 rounded hover:opacity-80">Ver
+                </button>
+            </form>
         </div>
     </div>
 </section>
