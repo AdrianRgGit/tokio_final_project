@@ -73,8 +73,10 @@ class ViewedContentView(TemplateView):
 
         user = self.request.user
 
-        viewed_movies = Movie.objects.filter(viewed__user=user)
-        viewed_series = Serie.objects.filter(viewed__user=user)
+        viewed_movies = Movie.objects.filter(userviewedcontent__user=user)
+        viewed_series = Serie.objects.filter(userviewedcontent__user=user)
+
+        print("Hola", viewed_movies)
 
         context['viewed_movies'] = viewed_movies
         context['viewed_series'] = viewed_series
@@ -83,19 +85,16 @@ class ViewedContentView(TemplateView):
 
 
 @method_decorator(login_required, name='dispatch')
-class ViewedContentView(LoginRequiredMixin, View):
+class AddViewedContentView(LoginRequiredMixin, View):
     def post(self, request, content_type, content_id):
         user = request.user
-        viewed = False
 
         if content_type == 'movie':
             content_object = get_object_or_404(Movie, pk=content_id)
             UserViewedContent.objects.get_or_create(user=user, movie=content_object)
-            viewed = True
         elif content_type == 'serie':
             content_object = get_object_or_404(Serie, pk=content_id)
             UserViewedContent.objects.get_or_create(user=user, serie=content_object)
-            viewed = True
         else:
             return HttpResponseBadRequest("Invalid content type")
 
