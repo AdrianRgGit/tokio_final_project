@@ -1,23 +1,45 @@
+from django.db.models import Count
 from django.views.generic import TemplateView
 from chartjs.views.lines import BaseLineChartView
 
+from content.models import Movie
 
-class LineChartJSONView(BaseLineChartView):
+
+class FavoriteChartView(TemplateView):
+    template_name = 'stats/line_chart.html'
+
+
+class FavoriteLineChartJSONView(BaseLineChartView):
     def get_labels(self):
-        """Return 7 labels for the x-axis."""
-        return ["January", "February", "March", "April", "May", "June", "July"]
+        """Return labels for the x-axis."""
+        labels = Movie.objects.annotate(favorites_count=Count('favorite')).values_list('title', flat=True)
+        return list(labels)
 
     def get_providers(self):
         """Return names of datasets."""
-        return ["Central", "Eastside", "Westside"]
+        return ["Favoritos"]
 
     def get_data(self):
-        """Return 3 datasets to plot."""
-
-        return [[75, 44, 92, 11, 44, 95, 35],
-                [41, 92, 18, 3, 73, 87, 92],
-                [87, 21, 94, 3, 90, 13, 65]]
+        """Return dataset to plot."""
+        data = Movie.objects.annotate(favorites_count=Count('favorite')).values_list('favorites_count', flat=True)
+        return [list(data)]
 
 
-line_chart = TemplateView.as_view(template_name='stats/line_chart.html')
-line_chart_json = LineChartJSONView.as_view()
+class UserViewedContentChartView(TemplateView):
+    template_name = 'line_chart.html'
+
+
+class UserViewedContentLineChartJSONView(BaseLineChartView):
+    def get_labels(self):
+        """Return labels for the x-axis."""
+        labels = Movie.objects.annotate(view_count=Count('userviewedcontent')).values_list('title', flat=True)
+        return list(labels)
+
+    def get_providers(self):
+        """Return names of datasets."""
+        return ["Vistas"]
+
+    def get_data(self):
+        """Return dataset to plot."""
+        data = Movie.objects.annotate(view_count=Count('userviewedcontent')).values_list('view_count', flat=True)
+        return [list(data)]

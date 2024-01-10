@@ -1,20 +1,73 @@
-<!-- line_chart.html -->
 {% extends "core/base.html" %}
-{% load static %}
 {% block content %}
-<h1>Some Line Charts loaded in Ajax!</h1>
+<h2>Favoritos</h2>
+<div style="height: 300px;">
+    <canvas id="favoritesChart"></canvas>
+</div>
 
-<canvas id="myChart" width="500" height="400"></canvas>
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
-<script type="text/javascript">
-    $.get('{% url "line_chart_json" %}', function(data) {
-        var ctx = $("#myChart").get(0).getContext("2d");
-        new Chart(ctx, {
-            type: 'line', data: data
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('favoritesChart').getContext('2d');
+    fetch("{% url 'favorite_chart_data' %}")
+      .then(response => response.json())
+      .then(data => {
+        const myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: data.datasets[0].label,
+              data: data.datasets[0].data,
+              fill: false,
+              borderColor: 'rgb(75, 192, 192)',
+              tension: 0.1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
         });
-    });
+      });
 </script>
 
+<h2>Vistas</h2>
+<div style="height: 300px;">
+    <canvas id="userViewedContentChart"></canvas>
+</div>
+
+<script>
+    const ctxUserViewedContent = document.getElementById('userViewedContentChart').getContext('2d');
+    fetch("{% url 'userviewedcontent-chart-data' %}")
+      .then(response => response.json())
+      .then(data => {
+        const userViewedContentChart = new Chart(ctxUserViewedContent, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: data.datasets[0].label,
+              data: data.datasets[0].data,
+              fill: false,
+              borderColor: 'rgb(255, 99, 132)', // Cambio de color para diferenciar la gráfica
+              tension: 0.1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      });
+</script>
 {% endblock %}
