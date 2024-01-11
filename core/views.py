@@ -57,7 +57,7 @@ class HistoryView(View):
 
 @method_decorator(login_required, name='dispatch')
 class StatsView(View):
-    template_name = 'core/line_chart.html'
+    template_name = 'core/chart.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)

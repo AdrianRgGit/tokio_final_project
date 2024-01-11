@@ -1,17 +1,15 @@
 {% extends "core/base.html" %}
 {% block content %}
-<section>
-    <!--Importante, poner siempre el enctype cuando se vayan a subir archivos-->
+<section class="bg-blue-1 p-8 rounded-lg max-w-md mx-auto mt-8">
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
-
-        <!--Django te crea el formulario automáticamente con esto-->
-        {{ form.as_p }}
-
-        <div>
-            <input type="submit" value="Guardar"/>
+        <div class="mt-4 gap-y-4 flex flex-col w-1/2 p-4 m-auto items-center text-black-1">
+            {{ form.as_p }}
+        </div>
+        <div class="mt-4">
+            <input type="submit" value="Guardar"
+                   class="bg-orange-1 text-white px-4 py-2 rounded hover:bg-opacity-80 cursor-pointer"/>
         </div>
     </form>
-
 </section>
 {% endblock %}

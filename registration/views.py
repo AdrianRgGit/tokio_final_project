@@ -20,6 +20,8 @@ class SignUpView(View):
             user = form.save()
             login(request, user)
             return redirect('home')
+        else:
+            print(form.errors)
 
         return render(request, self.template_name, {'form': form})
 
