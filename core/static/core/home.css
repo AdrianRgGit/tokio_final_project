@@ -20,6 +20,7 @@
 .search-filter-container{
   background-image: url('/static/images/imagen_fondo_prueba_1.jpg');
   background-position: center;
+  background-repeat: no-repeat;
   height: 40vh;
   margin-left: -4px;
   display: flex;

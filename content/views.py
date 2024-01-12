@@ -1,8 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, ListView
-from django.views.generic.base import View
 from django.urls import reverse_lazy
 
 from .models import Movie, Serie, Season, Episode
@@ -101,8 +100,6 @@ class SeasonListView(ListView):
 class SeasonDetailView(DetailView):
     template_name = "content/season_detail.html"
     model = Season
-
-    # Para las rutas que necesitan más de 1 pk
     def get_object(self):
         return get_object_or_404(Season, serie_id=self.kwargs['serie_pk'], pk=self.kwargs['season_pk'])
 
