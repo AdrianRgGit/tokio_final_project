@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+<section class="cards-container">
+    {% for season in seasons %}
+    <div class="card-container">
+        <a href="{% url 'season_detail' serie_pk=season.serie_id.pk season_pk=season.pk %}">
+            <img src="{{ season.image.url }}" class="card-image" alt="{{ season.title }}">
+            <div class="card-text-container">
+                <p class="genre">{{season.season_number}}</p>
+                <p class="title">{{season.title}}</p>
+                <p class="duration">{{season.release_date}}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+    <div class="add-content-container">
+        <a href="{% url 'create_season' %}" class="add-content">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+            </svg>
+        </a>
+    </div>
+</section>
+{% endblock %}

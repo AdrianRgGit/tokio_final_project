@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="bg-blue-1 ml-[-4px] p-4">
+    <h1 class="text-white-1 text-2xl">Favoritos</h1>
+    <p class="text-white-1">Estas son tus películas y series favoritas</p>
+</div>
+
+<!-- Películas -->
+<h1 class="main-title">Películas</h1>
+<section class="cards-container">
+    {% for movie in favorite_movies %}
+    <div class="card-container">
+        <a class="card-link" href="{% url 'movie_detail' movie.pk %}">
+            <img src="{{ movie.image.url }}" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">{{ movie.genre }}</p>
+                <p class="title">{{ movie.title }}</p>
+                <p class="duration">{{ movie.duration }} minutos</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Series -->
+<h1 class="main-title">Series</h1>
+<section class="cards-container">
+    {% for serie in favorite_series %}
+    <div class="card-container">
+        <a class="card-link" href="{% url 'serie_detail' serie.pk %}">
+            <img src="{{ serie.image.url }}" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">{{ serie.genre }}</p>
+                <p class="title">{{ serie.title }}</p>
+                <p class="duration">{{ serie.number_of_seasons }} temporadas</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

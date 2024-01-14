@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+
+<h1>Favoritos</h1>
+<p>Estas son tus películas y series favoritas</p>
+
+<h1 class="main-title">Películas</h1>
+<section class="cards-container">
+    <div class="card-container">
+        <a class="card-link" href="#">
+            <img src="{% static 'images/imagen_prueba_1.jpg' %}" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">Género</p>
+                <p class="title">Título</p>
+                <p class="duration">Duración</p>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!--Para series-->
+<h1 class="main-title">Series</h1>
+<section class="cards-container">
+    <div class="card-container">
+        <a class="card-link" href="#">
+            <img src="{% static 'images/imagen_prueba_2.jpg' %}" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">Género</p>
+                <p class="title">Título</p>
+                <p class="duration">Temporadas</p>
+            </div>
+        </a>
+    </div>
+</section>
+{% endblock %}

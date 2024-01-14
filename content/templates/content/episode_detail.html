@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+{% block content %}
+<section class="movie-container">
+    <div class="movie-image">
+        <img src="{{ episode.image.url }}" alt="{{ episode.title }}">
+    </div>
+    <div class="movie-details">
+        <h2>{{episode.title}}</h2>
+        <p>Fecha de lanzamiento: {{episode.release_date}}</p>
+        <p>Descripción: {{episode.description}}</p>
+    </div>
+    <div class="movie-buttons-container">
+        <button class="movie-buttons">Editar</button>
+        <button class="movie-buttons">Borrar</button>
+    </div>
+</section>
+{% endblock %}

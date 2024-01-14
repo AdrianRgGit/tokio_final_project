@@ -1,0 +1,76 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% load static %}
+<!--Filtros-->
+<section class="search-filter-container">
+    <form method="GET" action="{% url 'home' %}">
+        <div class="search-container">
+            <input class="search" type="text" name="query" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </div>
+    </form>
+
+    <div class="filter-container">
+        <a href="{% url 'home' %}" class="filter-button bg-blue-1 hover:opacity-90">Limpiar filtros</a>
+        <a href="{% url 'home' %}?sort_duration=duration"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar por duración</a>
+        <a href="{% url 'home' %}?sort_release_date=release_date"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar por fecha de salida</a>
+        <a href="{% url 'home' %}?sort_director=director"
+           class="filter-button filter-button bg-blue-1 hover:opacity-90">Ordenar director</a>
+    </div>
+</section>
+
+<!--Main-->
+<!--Para películas-->
+<h1 class="main-title">Películas</h1>
+
+<section class="cards-container">
+    {% for movie in movies %}
+    <div class="card-container">
+        <a class="card-link" href="{% url 'movie_detail' movie.pk %}">
+            <img src="{{ movie.image.url }}" class="card-image" alt="{{ movie.title }}">
+            <div class="card-text-container">
+                <p class="genre">{{movie.genre}}</p>
+                <p class="title">{{movie.title}}</p>
+                <p class="duration">{{movie.duration}} min</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+    <div class="add-content-container">
+        <a href="{% url 'create_movie' %}" class="add-content">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+            </svg>
+        </a>
+    </div>
+
+</section>
+
+
+<!--Para series-->
+<h1 class="main-title">Series</h1>
+<section class="cards-container">
+    {% for serie in series %}
+    <div class="card-container">
+        <a class="card-link" href="{% url 'serie_detail' serie.pk %}">
+            <img src="{{ serie.image.url }}" class="card-image"/>
+            <div class="card-text-container">
+                <p class="genre">{{serie.genre}}</p>
+                <p class="title">{{serie.title}}</p>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+
+    <div class="add-content-container">
+        <a href="{% url 'create_serie' %}" class="add-content">
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+            </svg>
+        </a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% block content %}
+<section class="bg-blue-1 p-8 rounded-lg max-w-md mx-auto mt-8">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p class="text-white-1 mb-4">¿Estás seguro de que quieres borrar <b>"{{ object }}"</b>?</p>
+        <input type="submit" value="Confirmar"
+               class="bg-orange-1 text-white px-4 py-2 rounded hover:bg-opacity-80 cursor-pointer"/>
+    </form>
+</section>
+{% endblock %}
